@@ -1,6 +1,8 @@
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
+import EditButton from "/components/EditButton";
+import Edit from "/components/Edit";
 import styles from "../../styles/Admin.module.css";
 
 const Index = ({ orders, products }) => {
@@ -9,6 +11,7 @@ const Index = ({ orders, products }) => {
   // we have to create here two state hooks, because when we delete any product or order, it will delete in MongoDB but we have to refresh the components to see the real changes in the view
   const [productList, setProductList] = useState(products);
   const [orderList, setOrderList] = useState(orders);
+  const [editClose, setEditClose] = useState(false);
   const status = ["preparing", "on the way", "delivered"];
 
   const handleDelete = async (id) => {
@@ -72,7 +75,6 @@ const Index = ({ orders, products }) => {
                 <td>{product.title}</td>
                 <td>Rs. {product.prices[0]}</td>
                 <td>
-                  <button className={styles.button}>Edit</button>
                   <button
                     className={styles.button}
                     onClick={() => handleDelete(product._id)} // we have to pass the id because we're going to delete it with its id
