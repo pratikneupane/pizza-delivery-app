@@ -1,8 +1,6 @@
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
-import EditButton from "/components/EditButton";
-import Edit from "/components/Edit";
 import styles from "../../styles/Admin.module.css";
 
 const Index = ({ orders, products }) => {
