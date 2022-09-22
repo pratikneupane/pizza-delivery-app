@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
 
-const Add = ({ setClose }) => {
+const Edit = ({ setEditClose, id }) => {
+  // we need the state to close/open modal as a prop
+
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
@@ -59,7 +61,7 @@ const Add = ({ setClose }) => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <span onClick={() => setClose(true)} className={styles.close}>
+        <span onClick={() => setEditClose(true)} className={styles.close}>
           X
         </span>
 
@@ -67,8 +69,11 @@ const Add = ({ setClose }) => {
 
         <div className={styles.item}>
           <label className={styles.label}>Choose an image</label>
-
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          <input
+            type="file"
+            onChange={(e) => setFile(e.target.files[0])}
+          />{" "}
+          {/* [0] means we can't choose multiple files */}
         </div>
 
         <div className={styles.item}>
@@ -155,4 +160,4 @@ const Add = ({ setClose }) => {
   );
 };
 
-export default Add;
+export default Edit;

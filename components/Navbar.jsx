@@ -9,13 +9,10 @@ const Navbar = () => {
 
   return (
     <div className={styles.container}>
-      {/* we're going to create 3 elements */}
-
       <Link href="/" passHref>
         <div className={styles.item}>
           <div className={styles.callButton}>
-            <Image src="/img/telephone.png" alt="" width="32" height="32" />{" "}
-            {/* Next.js wants we use its own tag for img, and you have to import it ... and very important define a width/height or a layout="fill" */}
+            <Image src="/img/telephone.png" alt="" width="32" height="32" />
           </div>
           <div className={styles.texts}>
             <div className={styles.text}>ORDER NOW!</div>

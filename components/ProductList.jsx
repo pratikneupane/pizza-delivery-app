@@ -13,17 +13,8 @@ const ProductList = ({ productList }) => {
       </p>
 
       <div className={styles.wrapper}>
-        {/* <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/> */}
-
-        {/* now, we dont' need to repeat this ProductCard,  */}
         {productList.map((product) => (
-          <ProductCard key={product._id} product={product} /> // for each pizza we have different ID, so you need to specify the key in component inside map() function
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>
