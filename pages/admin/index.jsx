@@ -1,8 +1,9 @@
 import axios from "axios";
 import Image from "next/image";
-import Edit from "../../components/Edit";
 import AddButton from "../../components/AddButton";
 import Add from "../../components/Add";
+// import Edit from "../../components/Edit";
+// import EditButton from "../../components/EditButton";
 import React, { useState } from "react";
 import styles from "../../styles/Admin.module.css";
 
@@ -10,6 +11,9 @@ const Index = ({ orders, products }) => {
   const [productList, setProductList] = useState(products);
   const [close, setClose] = useState(true);
   const [orderList, setOrderList] = useState(orders);
+  // const [edit, setEdit] = useState(false);
+  // const [editId, setEditId] = useState(false);
+  // const [formData, setFormData] = useState({});
   const status = ["preparing", "on the way", "delivered"];
 
   const handleDelete = async (id) => {
@@ -20,7 +24,6 @@ const Index = ({ orders, products }) => {
       console.log(err);
     }
   };
-
   const handleStatus = async (id) => {
     const item = orderList.filter((order) => order._id === id)[0];
     const currentStatus = item.status;
@@ -73,10 +76,13 @@ const Index = ({ orders, products }) => {
                   <td>{product._id.slice(0, 5)}...</td>
                   <td>{product.title}</td>
                   <td>Rs. {product.prices[0]}</td>
+                  {/* <td>
+                    <EditButton setEdit={setEdit} setEditId={product._id} />
+                  </td> */}
                   <td>
                     <button
                       className={styles.button}
-                      onClick={() => console.log("Hello World")}
+                      onClick={() => console.log(product._id)}
                     >
                       Edit
                     </button>
