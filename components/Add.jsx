@@ -48,7 +48,7 @@ const Add = ({ setClose }) => {
         image: url,
       };
 
-      await axios.post("http://0.0.0.0:3000/api/products", newProduct);
+      await axios.post("https://pizza-delivery-app-mocha.vercel.app/api/products", newProduct);
 
       setClose(true);
     } catch (err) {

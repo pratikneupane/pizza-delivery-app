@@ -29,7 +29,7 @@ export const getServerSideProps = async (ctx) => {
     admin = true;
   }
 
-  const res = await axios.get("http://0.0.0.0:3000/api/products");
+  const res = await axios.get("https://pizza-delivery-app-mocha.vercel.app/api/products");
   return {
     props: {
       productList: res.data,

@@ -22,7 +22,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("http://0.0.0.0:3000/api/orders", data);
+      const res = await axios.post("https://pizza-delivery-app-mocha.vercel.app/api/orders", data);
 
       if (res.status === 201) {
         dispatch(reset());
